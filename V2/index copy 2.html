@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Developer Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#070b14;
+    --bg2:#0d1323;
+    --card:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.12);
+    --text:#ffffff;
+    --muted:#a0aec0;
+    --primary:#7c3aed;
+    --secondary:#06b6d4;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:
+        radial-gradient(circle at top left,#7c3aed33,transparent 30%),
+        radial-gradient(circle at bottom right,#06b6d433,transparent 30%),
+        linear-gradient(135deg,var(--bg),var(--bg2));
+    overflow-x:hidden;
+}
+
+body.light{
+    --bg:#f8fafc;
+    --bg2:#ffffff;
+    --card:rgba(255,255,255,.75);
+    --border:rgba(0,0,0,.08);
+    --text:#111827;
+    --muted:#64748b;
+}
+
+.navbar{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(0,0,0,.2);
+    border-bottom:1px solid var(--border);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:800;
+    background:linear-gradient(90deg,#7c3aed,#06b6d4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--text);
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#7c3aed;
+}
+
+.theme-btn{
+    cursor:pointer;
+    background:var(--card);
+    border:1px solid var(--border);
+    color:var(--text);
+    width:45px;
+    height:45px;
+    border-radius:12px;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 20px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(3rem,7vw,6rem);
+    font-weight:800;
+    line-height:1.1;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #7c3aed,
+        #06b6d4
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.typing{
+    color:#06b6d4;
+    font-weight:700;
+}
+
+.hero p{
+    margin:30px auto;
+    max-width:700px;
+    color:var(--muted);
+    font-size:1.1rem;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:15px 28px;
+    border-radius:14px;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#7c3aed,#06b6d4);
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+section{
+    padding:120px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:3rem;
+}
+
+.section-title p{
+    color:var(--muted);
+    margin-top:10px;
+}
+
+.grid{
+    display:grid;
+    gap:25px;
+}
+
+.skills-grid{
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    border-radius:24px;
+    padding:30px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.skill-icon{
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.projects-grid{
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+}
+
+.project-card img{
+    width:100%;
+    border-radius:16px;
+    margin-bottom:20px;
+}
+
+.project-card h3{
+    margin-bottom:10px;
+}
+
+.project-card p{
+    color:var(--muted);
+}
+
+.tags{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.tag{
+    padding:6px 12px;
+    border-radius:999px;
+    background:rgba(124,58,237,.15);
+    color:#b794f4;
+    font-size:.85rem;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-box{
+    height:400px;
+    border-radius:30px;
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+}
+
+.about-text p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact-card{
+    max-width:700px;
+    margin:auto;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:var(--muted);
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">DEV.PORTFOLIO</div>
+
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="theme-btn" id="themeBtn">🌙</button>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+    Available for Freelance Work
+</div>
+
+<h1>
+    Hi, I'm
+    <span class="gradient">Vairell</span>
+</h1>
+
+<h2 style="margin-top:20px">
+    <span class="typing"></span>
+</h2>
+
+<p>
+    Saya membangun website modern, aplikasi web berkinerja tinggi,
+    dan pengalaman digital yang menarik dengan teknologi terbaru.
+</p>
+
+<div class="hero-buttons">
+    <a href="#projects" class="btn btn-primary">
+        View Projects
+    </a>
+
+    <a href="#contact" class="btn btn-secondary">
+        Contact Me
+    </a>
+</div>
+
+</div>
+
+</section>
+
+<section id="about" class="reveal">
+
+<div class="section-title">
+<h2>About Me</h2>
+<p>Developer yang fokus pada kualitas dan performa.</p>
+</div>
+
+<div class="about">
+    <div class="about-box"></div>
+
+    <div class="about-text">
+        <p>
+            Saya adalah Full Stack Developer yang berpengalaman
+            membangun aplikasi web modern menggunakan JavaScript,
+            React, Node.js, dan teknologi cloud.
+            Fokus saya adalah membuat produk yang cepat,
+            aman, dan mudah digunakan.
+        </p>
+    </div>
+</div>
+
+</section>
+
+<section id="skills" class="reveal">
+
+<div class="section-title">
+<h2>Skills</h2>
+<p>Teknologi yang sering saya gunakan.</p>
+</div>
+
+<div class="grid skills-grid">
+
+<div class="card">
+<h3>Frontend</h3>
+<p>HTML, CSS, JavaScript, React, Next.js</p>
+</div>
+
+<div class="card">
+<h3>Backend</h3>
+<p>Node.js, Express, PHP, Laravel</p>
+</div>
+
+<div class="card">
+<h3>Database</h3>
+<p>MySQL, PostgreSQL, MongoDB</p>
+</div>
+
+<div class="card">
+<h3>Cloud</h3>
+<p>AWS, Docker, Vercel</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="reveal">
+
+<div class="section-title">
+<h2>Featured Projects</h2>
+<p>Beberapa karya terbaik saya.</p>
+</div>
+
+<div class="grid projects-grid">
+
+<div class="card project-card">
+<h3>E-Commerce Platform</h3>
+
+<p>
+Platform toko online modern dengan dashboard admin.
+</p>
+
+<div class="tags">
+<span class="tag">React</span>
+<span class="tag">Node.js</span>
+<span class="tag">MongoDB</span>
+</div>
+</div>
+
+<div class="card project-card">
+<h3>Task Management App</h3>
+
+<p>
+Aplikasi produktivitas untuk tim dan perusahaan.
+</p>
+
+<div class="tags">
+<span class="tag">Next.js</span>
+<span class="tag">PostgreSQL</span>
+</div>
+</div>
+
+<div class="card project-card">
+<h3>Portfolio Website</h3>
+
+<p>
+Website personal dengan animasi modern.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact reveal">
+
+<div class="section-title">
+<h2>Let's Work Together</h2>
+<p>Hubungi saya untuk project berikutnya.</p>
+</div>
+
+<div class="card contact-card">
+<h3>Email</h3>
+<p style="margin-top:10px;color:var(--muted)">
+your@email.com
+</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Your Name — Crafted with ❤️
+</footer>
+
+<script>
+const words = [
+    "Full Stack Developer",
+    "Frontend Engineer",
+    "Backend Engineer",
+    "UI/UX Enthusiast"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typing = document.querySelector(".typing");
+
+function typeEffect(){
+
+    const current = words[wordIndex];
+
+    if(!deleting){
+        typing.textContent =
+        current.substring(0,charIndex++);
+
+        if(charIndex > current.length){
+            deleting = true;
+            setTimeout(typeEffect,1200);
+            return;
+        }
+    }else{
+        typing.textContent =
+        current.substring(0,charIndex--);
+
+        if(charIndex < 0){
+            deleting = false;
+            wordIndex =
+            (wordIndex + 1) % words.length;
+        }
+    }
+
+    setTimeout(typeEffect,
+        deleting ? 50 : 100
+    );
+}
+
+typeEffect();
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+}
+
+});
+
+},{threshold:.15});
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+themeBtn.onclick = ()=>{
+
+document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+    localStorage.setItem("theme","light");
+    themeBtn.innerHTML="☀️";
+}else{
+    localStorage.setItem("theme","dark");
+    themeBtn.innerHTML="🌙";
+}
+
+};
+
+if(localStorage.getItem("theme")==="light"){
+    document.body.classList.add("light");
+    themeBtn.innerHTML="☀️";
+}
+</script>
+
+</body>
+</html>

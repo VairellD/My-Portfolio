@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">DevPortfolio</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button id="theme-toggle">🌙</button>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Halo, Saya <span>Nama Anda</span></h1>
+            <p>Full Stack Developer | UI/UX Enthusiast</p>
+
+            <a href="#projects" class="btn">
+                Lihat Project
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>Tentang Saya</h2>
+
+        <p>
+            Saya adalah seorang developer yang berfokus pada
+            pengembangan website modern, scalable, dan user-friendly.
+        </p>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+
+        <div class="skills-grid">
+            <div class="skill-card">HTML</div>
+            <div class="skill-card">CSS</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">React</div>
+            <div class="skill-card">Node.js</div>
+            <div class="skill-card">Python</div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>E-Commerce Website</h3>
+                <p>Website toko online modern.</p>
+                <a href="#">Demo</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Task Manager App</h3>
+                <p>Aplikasi manajemen tugas.</p>
+                <a href="#">Demo</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>Website portfolio pribadi.</p>
+                <a href="#">Demo</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Kontak</h2>
+
+        <form id="contact-form">
+            <input type="text" placeholder="Nama" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Pesan" required></textarea>
+
+            <button type="submit">
+                Kirim Pesan
+            </button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 Nama Anda. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
