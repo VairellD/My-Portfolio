@@ -88,13 +88,23 @@ window.addEventListener("scroll", () => {
 
 const btnProject = document.getElementById("goToProject");
 
-btnProject.addEventListener('click', () => {
-  const headerHeight = 80; // Height of your sticky header in pixels
-  const elementPosition = target.getBoundingClientRect().top;
-  const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+$(document).ready(function () {
 
-  window.scrollTo({
-    top: offsetPosition,
-    behavior: 'smooth'
-  });
+    $(".nav-links a, .btn.secondary, .btn.primary").click(function (e) {
+
+        e.preventDefault();
+
+        const target =
+            $(this).attr("href");
+
+        $("html, body").animate(
+            {
+                scrollTop:
+                    $(target).offset().top - 80
+            },
+            800
+        );
+
+    });
+
 });
